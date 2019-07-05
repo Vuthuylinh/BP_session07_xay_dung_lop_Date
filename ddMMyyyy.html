@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let MyDate = function(day,month,year){
+        this.day = day;
+        this.month =month;
+        this.year = year;
+        this.date;
+        this.getDay= function () {
+            return this.day;
+        };
+        this.setDay=function (day) {
+            this.day=day;
+        };
+        this.getMonth=function () {
+            return this.month;
+        };
+        this.setMonth=function (month) {
+            this.month=month;
+
+        };
+        this.getYear=function () {
+            return this.year;
+        };
+        this.setYear=function (year) {
+            this.year=year;
+
+        };
+        this.toString = function () {
+            let str="";
+            if (this.day<10) {
+                str+="0"+this.day;
+            } else str+=this.day;
+            str+="/";
+            if (this.month<10) {
+                str+="0"+this.month;
+            } else str+=this.month;
+            str+="/";
+            if (this.year<10) {
+                str+="000"+this.year;
+            } else if(this.year<100) {
+                str+="00" + this.year;
+            }else if (this.year<1000){
+                str+="0"+ this.year;
+            } else str+=this.year;
+            return str;
+        };
+        this.setDate=function(day,month,year){
+            this.day=day;
+            this.month=month;
+            this.year=year;
+            this.date= this.toString();
+        };
+        this.getDate= function () {
+            return this.date;
+        };
+    };
+
+    let date = new MyDate(2,7,2019);
+    // let date1 = new MyDate(1,2,1990);
+    let day= date.getDay();
+    let month = date.getMonth();
+    let year = date.getYear();
+    alert(day+"/"+month+"/"+year);
+
+    date.setDay(10);
+    date.setMonth(4);
+    date.setYear(2019);
+    date.setDate(9,3,2018);
+    alert(date.getDate());
+    //alert(date.day+ "/"+date.month+"/"+date.year);
+    // alert(date1.day+"/"+date1.month+"/"+date1.year);
+    // alert(date.day+"/"+date1.month+"/"+date.year);
+
+
+</script>
+</body>
+</html>
